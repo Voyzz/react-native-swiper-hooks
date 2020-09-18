@@ -1,4 +1,4 @@
-# react-native-hooks-swiper
+# react-native-swiper-hooks
 ## Catalog
 - [Description](#description)
 - [Demo](#demo)
