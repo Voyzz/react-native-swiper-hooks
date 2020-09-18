@@ -16,7 +16,9 @@
 > [Email](18217501371@163.com) /
 > [Blog](http://blog.voyz.vip/) /
 > [Github](https://github.com/Voyzz) /
-> WeChat : voyz_shen1227
+> WeChat : voyz_shen1227  
+>
+> [history versions](https://www.npmjs.com/package/react-native-hooks-swiper)
 
 ---
 <span id='demo'><span>
