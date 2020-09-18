@@ -34,12 +34,12 @@
 <span id='use'><span>
 - install   
 ```
-npm i react-native-hooks-swiper --save
+npm i react-native-swiper-hooks --save
 ```
 
 - import  
 ```
-import Swiper from 'react-native-hooks-swiper'
+import Swiper from 'react-native-swiper-hooks'
 ```
 
 - Demo
