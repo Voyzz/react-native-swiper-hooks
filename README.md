@@ -1,24 +1,31 @@
-# react-native-swiper-hooks
+<div align=center><img align="center" src="https://i.loli.net/2020/09/19/LYfW67IyjgZoNKq.png" width="250px"/></div>
+
+[![](https://img.shields.io/badge/Wechat--informational?style=social&logo=wechat)](https://i.loli.net/2020/09/19/jHmZskwtUTF9oOh.png)
+[![](https://img.shields.io/badge/Github--informational?style=social&logo=github)](https://github.com/Voyzz)
+[![](https://img.shields.io/badge/Gmail--informational?style=social&logo=gmail)](voyzshen@gmail.com)
+[![](https://img.shields.io/badge/Blog--informational?style=social&logo=micro.blog)](http://blog.voyz.vip/)
+[![](https://img.shields.io/badge/ReactNative--informational?style=social&logo=react)](https://reactnative.cn/)
+
+![](https://img.shields.io/npm/v/react-native-swiper-hooks?style=for-the-badge)
+![](https://img.shields.io/npm/dt/react-native-swiper-hooks?style=for-the-badge)
+![](https://img.shields.io/github/last-commit/Voyzz/react-native-swiper-hooks?style=for-the-badge)
+![](https://img.shields.io/npm/l/react-native-swiper-hooks?style=for-the-badge)
+![](https://img.shields.io/github/languages/top/Voyzz/react-native-swiper-hooks?style=for-the-badge)
+
+# Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
+
+
+> 🦄 This is a powerful Swiper hooks component for React Native    
+>> ✨ 为React Native开发的Swiper Hooks组件   
+>    
+> 👨🏻‍💻 Powered by Voyz Shen   
+>> 🏫 Shanghai Jiao Tong University, Ctrip
+
 ## Catalog
-- [Description](#description)
 - [Demo](#demo)
-- [How to use](#use)
+- [How to use](#howtouse)
 - [Properties](#properties)
 - [Functions](#functions)
-
-## Description
-<span id='description'><span>
-> A powerful Swiper hooks component for React Native  
->  
-> 为React Native开发的Swiper Hooks组件  
-> 
->> Powered by Voyz Shen  
-> [Email](18217501371@163.com) /
-> [Blog](http://blog.voyz.vip/) /
-> [Github](https://github.com/Voyzz) /
-> WeChat : voyz_shen1227  
->
-> [history versions](https://www.npmjs.com/package/react-native-hooks-swiper)
 
 ---
 <span id='demo'><span>
@@ -33,7 +40,7 @@
 ---
 
 ## How to use
-<span id='use'><span>
+<span id='howtouse'><span>
 - install   
 ```
 npm i react-native-swiper-hooks --save
