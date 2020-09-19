@@ -22,10 +22,11 @@
 >> 🏫 Shanghai Jiao Tong University, Ctrip
 
 ## Catalog
-- [Demo](#demo)
-- [How to use](#howtouse)
-- [Properties](#properties)
-- [Functions](#functions)
+> - [Demo](#demo)
+> - [How to use](#howtouse)
+> - [Properties](#properties)
+> - [Functions](#functions)
+> - [Versions](#versions)
 
 ---
 <span id='demo'><span>
@@ -161,3 +162,11 @@ const _renderList = ()=>{
 ||||开始拖动时的回调函数|
 |onScrollEndDrag| nativeEvent | Object |Callback on scroll end drag|
 ||||结束拖动时的回调函数|
+
+<span id='versions'><span>
+## Versions
+> - v1.1.2 更新文档  
+>   
+> - v1.1.1 修复安卓循环模式下翻页闪屏问题  
+>   
+> - v1.1.0 组件项目迁移
