@@ -25,8 +25,8 @@
 > ✨ Shanghai Jiao Tong University, Ctrip
 
 ## Catalog
-> - [Demo](#demo)
 > - [How to use](#howtouse)
+> - [Demo](#demo)
 > - [Properties](#properties)
 > - [Functions](#functions)
 > - [Versions](#versions)
@@ -100,7 +100,7 @@ npm update react-native-swiper-hooks
 <span id='demo'><span>
 ## Demo
 ### autoplay ↓
-![autoplay](https://i.loli.net/2020/09/17/eL7ZEa9VUdSOIRl.gif)  
+![autoplay](https://i.loli.net/2020/09/21/nMUlKg74HGNZvLA.gif)  
 ```
 height={300}
 paginationSelectedColor={'#CCFF66'}
@@ -109,11 +109,54 @@ loop={true}
 showPagination={true}
 direction={'row'}
 ```
+  
 ### non-autoplay ↓
-![no_autoplay.gif](https://i.loli.net/2020/09/17/Z6B5AtbpCMcIxsq.gif)
+![non_autoplay.gif](https://i.loli.net/2020/09/21/4TLBZhYnAXatsbI.gif)  
+```
+height={300}
+paginationSelectedColor={'#CCFF66'}
+autoplay={false}
+loop={true}
+showPagination={true}
+direction={'row'}
+```
+  
 ### non-loop ↓
-![non-loop.gif](https://i.loli.net/2020/09/17/HuBKTni8gXt7eps.gif)
+![non_loop.gif](https://i.loli.net/2020/09/21/YuJKb8o2HpFkaqv.gif)  
+```
+height={300}
+paginationSelectedColor={'#CCFF66'}
+autoplay={false}
+loop={false}
+showPagination={true}
+direction={'row'}
+```
+  
+### vertical scrolling ↓
+![vertical_scrolling.gif](https://i.loli.net/2020/09/21/jT5hrXuE84Nlzc3.gif)  
+```
+height={300}
+paginationPosition={'left'}
+paginationSelectedColor={'#CCFF66'}
+autoplay={true}
+loop={true}
+showPagination={true}
+direction={'column'}
+```
+ 
+### diff Size ↓
+![swiper5.gif](https://i.loli.net/2020/09/21/65pIUGaq8xOJD2C.gif)
+```
+height={300}
+childWidth={WIDTH-100}
+paginationSelectedColor={'#CCFF66'}
+autoplay={true}
+loop={true}
+showPagination={true}
+direction={'row'}
 
+(child:{width=WIDTH-100})
+```
 ---
 
 <span id='properties'><span>
