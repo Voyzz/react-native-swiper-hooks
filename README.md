@@ -33,28 +33,6 @@
 
 ---
 
-<span id='demo'><span>
-## Demo
-### autoplay ↓
-![autoplay](https://i.loli.net/2020/09/17/eL7ZEa9VUdSOIRl.gif)  
-```
-<Swiper height={300}
-        paginationPosition={'bottom'}
-        paginationSelectedColor={'#CCFF66'}
-        autoplay={true}
-        loop={true}
-        showPagination={true}
-        direction={'row'}>
-  {children}
-</Swiper>
-```
-### non-autoplay ↓
-![no_autoplay.gif](https://i.loli.net/2020/09/17/Z6B5AtbpCMcIxsq.gif)
-### non-loop ↓
-![non-loop.gif](https://i.loli.net/2020/09/17/HuBKTni8gXt7eps.gif)
-
----
-
 <span id='howtouse'><span>
 ## How to use
 
@@ -73,7 +51,7 @@ import Swiper from 'react-native-swiper-hooks'
 ```
 ...
 const _renderList = ()=>{
-	 let listData = [
+	let listData = [
       {
         title:'1',
         bgColor:'#f00'
@@ -104,7 +82,7 @@ const _renderList = ()=>{
         autoplay={true}
         loop={true}
         showPagination={true}
-        bounces={false}>
+        >
   {_renderList()}
 </Swiper>
 
@@ -115,6 +93,26 @@ const _renderList = ()=>{
 ```
 npm update react-native-swiper-hooks
 ```   
+
+---
+
+
+<span id='demo'><span>
+## Demo
+### autoplay ↓
+![autoplay](https://i.loli.net/2020/09/17/eL7ZEa9VUdSOIRl.gif)  
+```
+height={300}
+paginationSelectedColor={'#CCFF66'}
+autoplay={true}
+loop={true}
+showPagination={true}
+direction={'row'}
+```
+### non-autoplay ↓
+![no_autoplay.gif](https://i.loli.net/2020/09/17/Z6B5AtbpCMcIxsq.gif)
+### non-loop ↓
+![non-loop.gif](https://i.loli.net/2020/09/17/HuBKTni8gXt7eps.gif)
 
 ---
 
