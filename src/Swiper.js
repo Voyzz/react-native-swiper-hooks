@@ -19,6 +19,8 @@ export default function Swiper(props) {
     const {
         width=WIDTH,                                                                        //[参数]容器宽度
         height=HEIGHT,                                                                      //[参数]容器高度
+        childWidth=null,                                                                    //[参数]子元素宽度
+        childHeight=null,                                                                   //[参数]子元素宽度
         boxBackgroundColor='#ffffff00',                                                     //[参数]容器背景色
         direction='row',                                                                    //[参数]滚动方向
         scrollEnabled=true,                                                                 //[参数]是否可以手动滚动
@@ -45,7 +47,9 @@ export default function Swiper(props) {
     // -------------------- props ---------------------
     const childrenLength = children.length,                                                 //子元素数量
           contentOffsetList = new Array(childrenLength).fill(1).map((child,index)=>{        //偏移量列表
-            return direction == 'row' ? width*index : height*index;
+            return direction == 'row' ?
+                  (!!childWidth ? childWidth : width)*index
+                : (!!childHeight ? childHeight : height)*index;
           });
     let inScroll = false;                                                                   //手动滚动中
 
@@ -53,11 +57,15 @@ export default function Swiper(props) {
     const rebulidChildren = (midIndex) => {
         let newChildrenArr = [];
         let preIndex =  midIndex==0 ? childrenLength-1 : midIndex-1,
-            backIndex = midIndex==childrenLength-1 ? 0 : midIndex+1;
+            nextIndex = midIndex==childrenLength-1 ? 0 : midIndex+1,
+            supIndex = nextIndex==childrenLength-1 ? 0 : nextIndex+1;
 
         newChildrenArr.push(children[preIndex]);
         newChildrenArr.push(children[midIndex]);
-        newChildrenArr.push(children[backIndex]);
+        newChildrenArr.push(children[nextIndex]);
+        if((direction == 'row' && !!childWidth)||(direction == 'column' && !!childHeight)){
+            !!children[supIndex] && newChildrenArr.push(children[supIndex]);
+        }
 
         return newChildrenArr;
     }
@@ -72,14 +80,17 @@ export default function Swiper(props) {
 
     // ------------------- Effects --------------------
     useEffect(() => {
+        const _oneStep = direction == 'row' ?
+            (!!childWidth ? childWidth : width)
+            : (!!childHeight ? childHeight : height);
         // scroll to init child
         setTimeout(() => {
             _scrollView.current.scrollTo({
                 y:direction!='row' ?
-                    (loop ? height : contentOffsetList[initIndex])
+                    (loop ? _oneStep : contentOffsetList[initIndex])
                     : 0,
                 x:direction=='row' ?
-                    (loop ? width :  contentOffsetList[initIndex])
+                    (loop ? _oneStep :  contentOffsetList[initIndex])
                     : 0,
                 animated: false
             })
@@ -130,17 +141,25 @@ export default function Swiper(props) {
                 autoplayOffset
                 : event.nativeEvent.contentOffset[direction == 'row' ? 'x' : 'y'];
         const _oneStep = direction == 'row' ?
-                width
-                : height;
+                (!!childWidth ? childWidth : width)
+                : (!!childHeight ? childHeight : height);
         let _currIndex = currIndex;
 
         if(!inScroll){
             // without loop
             if(!loop){
-                if(_offset<=0) _currIndex = 0;
-                else if(_offset >= contentOffsetList[childrenLength-1]) _currIndex = childrenLength-1;
-                else if(_offset >= _currIndex*_oneStep+minOffset) _currIndex += 1;
-                else if(_offset <= _currIndex*_oneStep-minOffset) _currIndex -= 1;
+                const _diffVal = direction == 'row' ?
+                  width - (!!childWidth ? childWidth : width)
+                : height - (!!childHeight ? childHeight : height);
+
+                if(_currIndex == childrenLength-1){
+                    if(_offset <= _currIndex*_oneStep-minOffset-_diffVal) _currIndex -= 1;
+                }else{
+                    if(_offset<=0) _currIndex = 0;
+                    else if(_offset >= contentOffsetList[childrenLength-1]) _currIndex = childrenLength-1;
+                    else if(_offset >= _currIndex*_oneStep+minOffset) _currIndex += 1;
+                    else if(_offset <= _currIndex*_oneStep-minOffset) _currIndex -= 1;
+                }
 
                 _scrollView.current.scrollTo({
                     x:direction == 'row' ? contentOffsetList[_currIndex] : 0,
@@ -156,8 +175,8 @@ export default function Swiper(props) {
                     if(_currIndex == childrenLength-1) _currIndex = 0;
                     else _currIndex += 1;
                     _scrollView.current.scrollTo({
-                        x:direction == 'row' ? 2*_oneStep : 0,
-                        y:direction != 'row' ? 2*_oneStep : 0,
+                        x:direction == 'row' ? _oneStep*2 : 0,
+                        y:direction != 'row' ? _oneStep*2 : 0,
                         animated
                     });
                     setCurrIndex(_currIndex);
@@ -177,9 +196,9 @@ export default function Swiper(props) {
                     _isAndroid && setAndroidMask(true);
                     _scrollView.current.scrollTo({
                         y:direction!='row' ?
-                            height : 0,
+                            _oneStep : 0,
                         x:direction=='row' ?
-                            width :  0,
+                            _oneStep :  0,
                         animated: false
                     })
                     setChildren(rebulidChildren(_currIndex));
@@ -196,7 +215,9 @@ export default function Swiper(props) {
 
     // on autoplay
     const onAutoplay = () => {
-        const _oneStep = direction == 'row' ? width : height;
+        const _oneStep = direction == 'row' ?
+            (!!childWidth ? childWidth : width)
+            : (!!childHeight ? childHeight : height);
         let _autoplayOffset,_currIndex = currIndex;
 
         // without loop

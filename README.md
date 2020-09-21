@@ -15,11 +15,14 @@
 # Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
 
 
-> 🦄 This is a powerful Swiper hooks component for React Native    
+> 🦄 **This is a powerful Swiper hooks component for React Native**    
 >> ✨ 为React Native开发的Swiper Hooks组件   
 >    
-> 👨🏻‍💻 Powered by Voyz Shen   
->> 🏫 Shanghai Jiao Tong University, Ctrip
+> 📚 **Welcomes to provide your valuable comments or suggestions by 'Issues' or my contact information**    
+>> ✨ 欢迎通过”issues“或我的联系方式，为我提供宝贵意见   
+>  
+> 👨🏻‍💻 **Powered by Voyz Shen**   
+> ✨ Shanghai Jiao Tong University, Ctrip
 
 ## Catalog
 > - [Demo](#demo)
@@ -29,6 +32,7 @@
 > - [Versions](#versions)
 
 ---
+
 <span id='demo'><span>
 ## Demo
 ### autoplay ↓
@@ -40,9 +44,10 @@
 
 ---
 
-## How to use
 <span id='howtouse'><span>
-- install   
+## How to use
+
+- installation   
 ```
 npm i react-native-swiper-hooks --save
 ```
@@ -95,10 +100,15 @@ const _renderList = ()=>{
 ...
 ```
 
+- update   
+```
+npm update react-native-swiper-hooks
+```   
+
 ---
 
-## Properties
 <span id='properties'><span>
+## Properties
 ![pagination-shower.jpg](https://i.loli.net/2020/09/17/uMnIVfo1KgrslcB.jpg)
 
 
