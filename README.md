@@ -36,7 +36,18 @@
 <span id='demo'><span>
 ## Demo
 ### autoplay ↓
-![autoplay](https://i.loli.net/2020/09/17/eL7ZEa9VUdSOIRl.gif)
+![autoplay](https://i.loli.net/2020/09/17/eL7ZEa9VUdSOIRl.gif)  
+```
+<Swiper height={300}
+        paginationPosition={'bottom'}
+        paginationSelectedColor={'#CCFF66'}
+        autoplay={true}
+        loop={true}
+        showPagination={true}
+        direction={'row'}>
+  {children}
+</Swiper>
+```
 ### non-autoplay ↓
 ![no_autoplay.gif](https://i.loli.net/2020/09/17/Z6B5AtbpCMcIxsq.gif)
 ### non-loop ↓
@@ -57,7 +68,7 @@ npm i react-native-swiper-hooks --save
 import Swiper from 'react-native-swiper-hooks'
 ```
 
-- Demo
+- Useage
 
 ```
 ...
@@ -119,6 +130,10 @@ npm update react-native-swiper-hooks
 |||||容器宽度|
 |height|[height of screen]|/| Number |Height of the Swiper container|
 |||||容器高度|
+|childWidth|/|/|Number|Width of the child component（when width of container and child component）|
+|||||子元素宽度（当子元素宽度与容器宽度不同时传此参数）|
+|childHeight|/|/|Number|Width of the child component（when height of container and child component）|
+|||||子元素高度（当子元素宽度与容器高度不同时传此参数）|
 |boxBackgroundColor|/|/|Color|Background color of the Swiper container|
 |||||容器背景颜色|
 |initIndex|0|/|Number|Index of the init child|
@@ -175,8 +190,18 @@ npm update react-native-swiper-hooks
 
 <span id='versions'><span>
 ## Versions
-> - v1.1.2 更新文档  
+> - **v1.2.0**   
+>> [添加新功能] 允许swiper内子元素尺寸与容器尺寸不同   
+>
+> - v1.1.3   
+>> [性能优化] 修复页码器更新延迟  
+>> [bug修复] 修复循环模式下翻页至页尾时的bug 
+>
+> - v1.1.2 
+>> 更新文档  
 >   
-> - v1.1.1 修复安卓循环模式下翻页闪屏问题  
+> - v1.1.1 
+>> [bug修复] 修复安卓循环模式下翻页闪屏问题  
 >   
-> - v1.1.0 组件项目迁移
+> - **v1.1.0** 
+>> 组件项目迁移
