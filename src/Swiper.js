@@ -205,7 +205,7 @@ export default function Swiper(props) {
                     _isAndroid && setTimeout(() => {
                         setAndroidMask(false);
                     }, 100);
-                }, _isAndroid ? 50 : 500);
+                }, 500);
             }
 
             // callback
