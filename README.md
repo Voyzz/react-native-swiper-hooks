@@ -46,12 +46,12 @@ npm i react-native-swiper-hooks --save
 import Swiper from 'react-native-swiper-hooks'
 ```
 
-- Useage
+- use it
 
 ```
 ...
 const _renderList = ()=>{
-	let listData = [
+  let listData = [
       {
         title:'1',
         bgColor:'#f00'
@@ -156,6 +156,15 @@ showPagination={true}
 direction={'row'}
 
 (child:{width=WIDTH-100})
+```  
+
+### init Index ↓
+![swipe6.gif](https://i.loli.net/2020/09/21/cvTPy31z6YgLXmE.gif)  
+
+```
+height={300}
+initIndex={1}
+showPagination={false}
 ```
 ---
 
