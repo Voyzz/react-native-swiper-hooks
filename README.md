@@ -29,7 +29,7 @@
 > - [Demo](#demo)
 > - [Properties](#properties)
 > - [Functions](#functions)
-> - [Versions](#versions)
+> - [Versions](#versions)  
 
 ---
 
