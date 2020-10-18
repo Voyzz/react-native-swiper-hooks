@@ -22,7 +22,7 @@
 >> ✨ 欢迎通过”issues“或我的联系方式，为我提供宝贵意见   
 >  
 > 👨🏻‍💻 **Powered by Voyz Shen**    
-> ✨ Shanghai Jiao Tong University, Ctrip
+> ✨ Shanghai Jiao Tong University, Ctrip   
 
 ## Catalog
 > - [How to use](#howtouse)
