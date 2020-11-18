@@ -12,24 +12,24 @@
 ![](https://img.shields.io/npm/l/react-native-swiper-hooks?style=for-the-badge)
 ![](https://img.shields.io/github/languages/top/Voyzz/react-native-swiper-hooks?style=for-the-badge)
 
-# Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
+# Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px"> 
 
 
 > 🦄 **This is a powerful Swiper hooks component for React Native**    
->> ✨ 为React Native开发的Swiper Hooks组件   
+>> ✨ 为React Native开发的Swiper Hooks组件     
 >    
 > 📚 **Welcomes to provide your valuable comments or suggestions by 'Issues' or my contact information**    
 >> ✨ 欢迎通过”issues“或我的联系方式，为我提供宝贵意见   
 >  
-> 👨🏻‍💻 **Powered by Voyz Shen**   
-> ✨ Shanghai Jiao Tong University, Ctrip
+> 👨🏻‍💻 **Powered by Voyz Shen**    
+> ✨ Shanghai Jiao Tong University, Ctrip   
 
 ## Catalog
 > - [How to use](#howtouse)
 > - [Demo](#demo)
 > - [Properties](#properties)
 > - [Functions](#functions)
-> - [Versions](#versions)
+> - [Versions](#versions)  
 
 ---
 
