@@ -237,9 +237,15 @@ showPagination={false}
 ||||开始拖动时的回调函数|
 |onScrollEndDrag| nativeEvent | Object |Callback on scroll end drag|
 ||||结束拖动时的回调函数|
+|getScrollDistance| / | int |get distance on scrolling|
+||||获取手动滚动距离|
 
 <span id='versions'><span>
 ## Versions
+> - **v1.2.0**   
+>> [添加新方法] 获取手动滚动距离   
+>> [性能优化] 优化手动滚动时与自动滚动的冲突   
+>
 > - **v1.2.0**   
 >> [添加新功能] 允许swiper内子元素尺寸与容器尺寸不同   
 >

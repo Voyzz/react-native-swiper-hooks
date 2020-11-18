@@ -7,6 +7,7 @@ powered by Voyz Shen
 'use strict';
 import React, { useState, useEffect,useRef } from 'react';
 import { StyleSheet,View,Text,Image,TouchableOpacity,ScrollView,Platform,Dimensions,UIManager } from 'react-native';
+// import { Event } from '@ctrip/crn';
 
 // ----- static variables -----
 const { height:HEIGHT,width:WIDTH } = Dimensions.get('window');
@@ -43,6 +44,8 @@ export default function Swiper(props) {
         onPaginationChange,                                                                 //[回调函数]页码改变
         onScrollBeginDrag,                                                                  //[回调函数]开始滚动
         onScrollEndDrag,                                                                    //[回调函数]结束滚动
+        getScrollDistance,                                                                  //[回调函数]滚动距离
+        // paramsControlScroll=false,
     } = props ;
     // -------------------- props ---------------------
     const childrenLength = children.length,                                                 //子元素数量
@@ -77,6 +80,43 @@ export default function Swiper(props) {
 
     // -------------------- Refs ----------------------
     const _scrollView = useRef(null);
+
+    // let _maxDis = 0;
+    // if(paramsControlScroll){
+    //     Event.addEventListener('myEvent',(event)=>{
+    //         const { scrollEndDrag,scrollDistance } = event;
+    //         const _oneStep = direction == 'row' ?
+    //             (!!childWidth ? childWidth : width)
+    //             : (!!childHeight ? childHeight : height);
+    //         if(!scrollEndDrag){
+    //             inScroll = true;
+    //             _maxDis = scrollDistance;
+    //             if(!loop){
+    //                 _scrollView.current.scrollTo({
+    //                     x:direction == 'row' ? contentOffsetList[currIndex] + scrollDistance : 0,
+    //                     y:direction != 'row' ? contentOffsetList[currIndex] + scrollDistance : 0,
+    //                     animated:false
+    //                 });
+    //             }else{
+    //                 _scrollView.current.scrollTo({
+    //                     x:direction == 'row' ? _oneStep + scrollDistance : 0,
+    //                     y:direction != 'row' ? _oneStep + scrollDistance : 0,
+    //                     animated:false
+    //                 });
+    //             }
+    //         }else{
+    //             if(_maxDis != 0){
+    //                 inScroll = false;
+    //                 if(!loop){
+    //                     _onScrollEndDrag(null,contentOffsetList[currIndex]+_maxDis)
+    //                 }else{
+    //                     _onScrollEndDrag(null,_oneStep+_maxDis)
+    //                 }
+    //             }
+    //         }
+    //     })
+    // }
+
 
     // ------------------- Effects --------------------
     useEffect(() => {
@@ -118,7 +158,7 @@ export default function Swiper(props) {
 
     // useInterval
     useInterval(()=>{
-        if(autoplay){
+        if(autoplay && !inScroll){
             onAutoplay();
         }
     },autoplayGapTime*1000)
@@ -211,6 +251,11 @@ export default function Swiper(props) {
             // callback
             !!onPaginationChange && onPaginationChange(_currIndex);
         }
+    }
+
+    const _onScroll = (event)=>{
+        const scrollDistance = event.nativeEvent.contentOffset.x;
+        !!getScrollDistance && getScrollDistance(scrollDistance)
     }
 
     // on autoplay
@@ -309,7 +354,9 @@ export default function Swiper(props) {
                         bounces={bounces}
                         onScrollBeginDrag={_onScrollBeginDrag}
                         onScrollEndDrag={_onScrollEndDrag}
+                        onScroll={_onScroll}
                         ref = {_scrollView}
+                        scrollEventThrottle = {1}
                         showsHorizontalScrollIndicator={false}>
                 { loop ? currChildren : children}
             </ScrollView>
