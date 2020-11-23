@@ -34,6 +34,7 @@ export default function Swiper(props) {
         animated=true,                                                                      //[参数]翻页动画
         minOffset = 10,                                                                     //[参数]翻页最小偏移量
         initIndex=0,                                                                        //[参数]初始页
+        scrollToIndex=null,                                                                 //[参数]滚动至某页
         showPagination=true,                                                                //[参数]是否显示页码器
         paginationPosition='bottom',                                                        //[参数]页码器位置
         paginationOffset=5,                                                                 //[参数]页码器偏移量
@@ -162,6 +163,14 @@ export default function Swiper(props) {
             onAutoplay();
         }
     },autoplayGapTime*1000)
+
+    // scroll to the page by param
+    useEffect(() => {
+        if(typeof scrollToIndex == 'number'){
+            setCurrIndex(scrollToIndex)
+            setChildren(rebulidChildren(scrollToIndex));
+        }
+    }, [scrollToIndex])
 
 
     // ------------------ functions -------------------

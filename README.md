@@ -188,6 +188,8 @@ showPagination={false}
 |||||容器背景颜色|
 |initIndex|0|/|Number|Index of the init child|
 |||||初始页|
+|scrollToIndex|0|/|Number|scroll to the child|
+|||||参数控制滚动至某子元素|
 |direction|'row'|'row' / 'column'|String|Direction of the scrolling  |
 |||||滚动方向|
 |minOffset|10|/|Number| Threshold of scroll distance for page turning|
@@ -242,7 +244,10 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
-> - **v1.2.0**   
+> - **v1.2.2**   
+>> [添加新参数] scrollToIndex参数控制滚动至某子元素    
+>
+> - **v1.2.1**   
 >> [添加新方法] 获取手动滚动距离   
 >> [性能优化] 优化手动滚动时与自动滚动的冲突   
 >
