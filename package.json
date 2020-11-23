@@ -1,6 +1,6 @@
 {
   "name": "react-native-swiper-hooks",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A powerful Swiper hooks component for React Native",
   "main": "index.js",
   "scripts": {
