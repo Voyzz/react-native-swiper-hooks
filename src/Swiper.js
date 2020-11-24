@@ -46,6 +46,7 @@ export default function Swiper(props) {
         onScrollBeginDrag,                                                                  //[回调函数]开始滚动
         onScrollEndDrag,                                                                    //[回调函数]结束滚动
         getScrollDistance,                                                                  //[回调函数]滚动距离
+        getChildrenOnPageinationChange,
         // paramsControlScroll=false,
     } = props ;
     // -------------------- props ---------------------
@@ -93,13 +94,13 @@ export default function Swiper(props) {
     //             inScroll = true;
     //             _maxDis = scrollDistance;
     //             if(!loop){
-    //                 _scrollView.current.scrollTo({
+    //                 _scrollView.current && _scrollView.current.scrollTo({
     //                     x:direction == 'row' ? contentOffsetList[currIndex] + scrollDistance : 0,
     //                     y:direction != 'row' ? contentOffsetList[currIndex] + scrollDistance : 0,
     //                     animated:false
     //                 });
     //             }else{
-    //                 _scrollView.current.scrollTo({
+    //                 _scrollView.current && _scrollView.current.scrollTo({
     //                     x:direction == 'row' ? _oneStep + scrollDistance : 0,
     //                     y:direction != 'row' ? _oneStep + scrollDistance : 0,
     //                     animated:false
@@ -126,7 +127,7 @@ export default function Swiper(props) {
             : (!!childHeight ? childHeight : height);
         // scroll to init child
         setTimeout(() => {
-            _scrollView.current.scrollTo({
+            _scrollView.current && _scrollView.current.scrollTo({
                 y:direction!='row' ?
                     (loop ? _oneStep : contentOffsetList[initIndex])
                     : 0,
@@ -210,7 +211,7 @@ export default function Swiper(props) {
                     else if(_offset <= _currIndex*_oneStep-minOffset) _currIndex -= 1;
                 }
 
-                _scrollView.current.scrollTo({
+                _scrollView.current && _scrollView.current.scrollTo({
                     x:direction == 'row' ? contentOffsetList[_currIndex] : 0,
                     y:direction != 'row' ? contentOffsetList[_currIndex] : 0,
                     animated
@@ -223,7 +224,7 @@ export default function Swiper(props) {
                 if(_offset >= _oneStep + minOffset){
                     if(_currIndex == childrenLength-1) _currIndex = 0;
                     else _currIndex += 1;
-                    _scrollView.current.scrollTo({
+                    _scrollView.current && _scrollView.current.scrollTo({
                         x:direction == 'row' ? _oneStep*2 : 0,
                         y:direction != 'row' ? _oneStep*2 : 0,
                         animated
@@ -232,7 +233,7 @@ export default function Swiper(props) {
                 }else if(_offset <= _oneStep - minOffset){
                     if(_currIndex == 0) _currIndex = childrenLength-1;
                     else _currIndex -= 1;
-                    _scrollView.current.scrollTo({
+                    _scrollView.current && _scrollView.current.scrollTo({
                         x:0,
                         y:0,
                         animated
@@ -243,7 +244,7 @@ export default function Swiper(props) {
                 setTimeout(() => {
                     tmpMidIndex = _currIndex;
                     _isAndroid && setAndroidMask(true);
-                    _scrollView.current.scrollTo({
+                    _scrollView.current && _scrollView.current.scrollTo({
                         y:direction!='row' ?
                             _oneStep : 0,
                         x:direction=='row' ?
@@ -259,6 +260,7 @@ export default function Swiper(props) {
 
             // callback
             !!onPaginationChange && onPaginationChange(_currIndex);
+            !!getChildrenOnPageinationChange && getChildrenOnPageinationChange(currChildren);
         }
     }
 

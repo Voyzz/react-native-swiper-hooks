@@ -241,9 +241,15 @@ showPagination={false}
 ||||结束拖动时的回调函数|
 |getScrollDistance| / | int |get distance on scrolling|
 ||||获取手动滚动距离|
+|getChildrenOnPageinationChange| / | int |get JSX Array of Children|
+||||获取JSX数组|
+
 
 <span id='versions'><span>
 ## Versions
+> - **v1.2.3**   
+>> [添加新方法] getChildrenOnPageinationChange获取JSX数组    
+>
 > - **v1.2.2**   
 >> [添加新参数] scrollToIndex参数控制滚动至某子元素    
 >
