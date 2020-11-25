@@ -168,8 +168,12 @@ export default function Swiper(props) {
     // scroll to the page by param
     useEffect(() => {
         if(typeof scrollToIndex == 'number'){
-            setCurrIndex(scrollToIndex)
+            inScroll = true;
             setChildren(rebulidChildren(scrollToIndex));
+            setCurrIndex(scrollToIndex)
+            setTimeout(() => {
+                inScroll = false;
+            }, (autoplayGapTime/2)*1000);
         }
     }, [scrollToIndex])
 

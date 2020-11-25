@@ -247,6 +247,9 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
+> - **v1.2.4**   
+>> [性能优化] 避免scrollToIndex与自动播放的冲突
+>
 > - **v1.2.3**   
 >> [添加新方法] getChildrenOnPageinationChange获取JSX数组    
 >
