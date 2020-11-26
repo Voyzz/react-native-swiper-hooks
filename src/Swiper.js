@@ -14,6 +14,7 @@ const { height:HEIGHT,width:WIDTH } = Dimensions.get('window');
 const _isAndroid = Platform.OS == 'android';
 // ------ temp props -------
 let tmpMidIndex = 0;                                                                        //存储当前页码
+let inScroll = false;                                                                       //手动滚动中
 
 export default function Swiper(props) {
     // ----------------- input props -----------------
@@ -56,7 +57,6 @@ export default function Swiper(props) {
                   (!!childWidth ? childWidth : width)*index
                 : (!!childHeight ? childHeight : height)*index;
           });
-    let inScroll = false;                                                                   //手动滚动中
 
     // rebuild children Array
     const rebulidChildren = (midIndex) => {
@@ -79,45 +79,10 @@ export default function Swiper(props) {
     const [currIndex, setCurrIndex] = useState(initIndex)                         //current index
     const [currChildren, setChildren] = useState(rebulidChildren(initIndex))      //current children
     const [androidMask, setAndroidMask] = useState(false)                         //mask for avoiding flash
+    const [intervalPause, setIntervalPause] = useState(false)                     //stop useInterval
 
     // -------------------- Refs ----------------------
     const _scrollView = useRef(null);
-
-    // let _maxDis = 0;
-    // if(paramsControlScroll){
-    //     Event.addEventListener('myEvent',(event)=>{
-    //         const { scrollEndDrag,scrollDistance } = event;
-    //         const _oneStep = direction == 'row' ?
-    //             (!!childWidth ? childWidth : width)
-    //             : (!!childHeight ? childHeight : height);
-    //         if(!scrollEndDrag){
-    //             inScroll = true;
-    //             _maxDis = scrollDistance;
-    //             if(!loop){
-    //                 _scrollView.current && _scrollView.current.scrollTo({
-    //                     x:direction == 'row' ? contentOffsetList[currIndex] + scrollDistance : 0,
-    //                     y:direction != 'row' ? contentOffsetList[currIndex] + scrollDistance : 0,
-    //                     animated:false
-    //                 });
-    //             }else{
-    //                 _scrollView.current && _scrollView.current.scrollTo({
-    //                     x:direction == 'row' ? _oneStep + scrollDistance : 0,
-    //                     y:direction != 'row' ? _oneStep + scrollDistance : 0,
-    //                     animated:false
-    //                 });
-    //             }
-    //         }else{
-    //             if(_maxDis != 0){
-    //                 inScroll = false;
-    //                 if(!loop){
-    //                     _onScrollEndDrag(null,contentOffsetList[currIndex]+_maxDis)
-    //                 }else{
-    //                     _onScrollEndDrag(null,_oneStep+_maxDis)
-    //                 }
-    //             }
-    //         }
-    //     })
-    // }
 
 
     // ------------------- Effects --------------------
@@ -160,20 +125,40 @@ export default function Swiper(props) {
 
     // useInterval
     useInterval(()=>{
-        if(autoplay && !inScroll){
+        if(autoplay && !intervalPause){
             onAutoplay();
         }
-    },autoplayGapTime*1000)
+    },intervalPause ? null : autoplayGapTime*1000)
 
     // scroll to the page by param
     useEffect(() => {
         if(typeof scrollToIndex == 'number'){
-            inScroll = true;
-            setChildren(rebulidChildren(scrollToIndex));
-            setCurrIndex(scrollToIndex)
-            setTimeout(() => {
-                inScroll = false;
-            }, (autoplayGapTime/2)*1000);
+            // loop
+            if(loop){
+                inScroll = true;
+                setIntervalPause(true);
+                setChildren(rebulidChildren(scrollToIndex));
+                setCurrIndex(scrollToIndex)
+                setTimeout(() => {
+                    inScroll = false;
+                    setIntervalPause(false);
+                }, autoplayGapTime*1000);
+            }
+            // without loop
+            else{
+                inScroll = true;
+                setIntervalPause(true);
+                setCurrIndex(scrollToIndex);
+                _scrollView.current && _scrollView.current.scrollTo({
+                    x:direction == 'row' ? contentOffsetList[scrollToIndex] : 0,
+                    y:direction != 'row' ? contentOffsetList[scrollToIndex] : 0,
+                    animated:false
+                });
+                setTimeout(() => {
+                    inScroll = false;
+                    setIntervalPause(false);
+                }, autoplayGapTime*1000);
+            }
         }
     }, [scrollToIndex])
 
@@ -184,13 +169,16 @@ export default function Swiper(props) {
     const _onScrollBeginDrag = (event) => {
         !!onScrollBeginDrag && onScrollBeginDrag(event);
         inScroll = true;
+        setIntervalPause(true);
     }
 
     // on scroll end
     const _onScrollEndDrag = (event,autoplayOffset) => {
         !!onScrollEndDrag && onScrollEndDrag(event)
-        if(!autoplayOffset) inScroll = false;
-
+        if(!autoplayOffset) {
+            inScroll = false;
+            setIntervalPause(false);
+        }
         const _offset = !!autoplayOffset ?
                 autoplayOffset
                 : event.nativeEvent.contentOffset[direction == 'row' ? 'x' : 'y'];

@@ -247,6 +247,9 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
+> - **v1.2.5**   
+>> [性能优化] 手动滚动时暂停自动滚动的计时器
+>
 > - **v1.2.4**   
 >> [性能优化] 避免scrollToIndex与自动播放的冲突
 >
