@@ -190,7 +190,7 @@ showPagination={false}
 |||||初始页|
 |scrollToIndex|0|/|Number|scroll to the child|
 |||||参数控制滚动至某子元素|
-|scrollToIndex|300|/|Number|(Android only)Duration (ms) on page turning|
+|scrollDuration|300|/|Number|(Android only)Duration (ms) on page turning|
 |||||翻页滚动持续时间|
 |direction|'row'|'row' / 'column'|String|Direction of the scrolling  |
 |||||滚动方向|
