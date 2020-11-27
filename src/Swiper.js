@@ -36,6 +36,7 @@ export default function Swiper(props) {
         minOffset = 10,                                                                     //[参数]翻页最小偏移量
         initIndex=0,                                                                        //[参数]初始页
         scrollToIndex=null,                                                                 //[参数]滚动至某页
+        scrollDuration=null,                                                                //[参数]翻页滚动持续时间(Android)
         showPagination=true,                                                                //[参数]是否显示页码器
         paginationPosition='bottom',                                                        //[参数]页码器位置
         paginationOffset=5,                                                                 //[参数]页码器偏移量
@@ -92,7 +93,7 @@ export default function Swiper(props) {
             : (!!childHeight ? childHeight : height);
         // scroll to init child
         setTimeout(() => {
-            _scrollView.current && _scrollView.current.scrollTo({
+            let _scrollConfig = {
                 y:direction!='row' ?
                     (loop ? _oneStep : contentOffsetList[initIndex])
                     : 0,
@@ -100,7 +101,9 @@ export default function Swiper(props) {
                     (loop ? _oneStep :  contentOffsetList[initIndex])
                     : 0,
                 animated: false
-            })
+            }
+            if(!!scrollDuration) _scrollConfig.duration = scrollDuration
+            _scrollView.current && _scrollView.current.scrollTo(_scrollConfig)
         }, 0);
     }, []);
 
@@ -149,11 +152,14 @@ export default function Swiper(props) {
                 inScroll = true;
                 setIntervalPause(true);
                 setCurrIndex(scrollToIndex);
-                _scrollView.current && _scrollView.current.scrollTo({
+
+                let _scrollConfig = {
                     x:direction == 'row' ? contentOffsetList[scrollToIndex] : 0,
                     y:direction != 'row' ? contentOffsetList[scrollToIndex] : 0,
                     animated:false
-                });
+                }
+                if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
+                _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
                 setTimeout(() => {
                     inScroll = false;
                     setIntervalPause(false);
@@ -203,11 +209,13 @@ export default function Swiper(props) {
                     else if(_offset <= _currIndex*_oneStep-minOffset) _currIndex -= 1;
                 }
 
-                _scrollView.current && _scrollView.current.scrollTo({
+                let _scrollConfig = {
                     x:direction == 'row' ? contentOffsetList[_currIndex] : 0,
                     y:direction != 'row' ? contentOffsetList[_currIndex] : 0,
                     animated
-                });
+                }
+                if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
+                _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
 
                 setCurrIndex(_currIndex);
             }
@@ -216,33 +224,43 @@ export default function Swiper(props) {
                 if(_offset >= _oneStep + minOffset){
                     if(_currIndex == childrenLength-1) _currIndex = 0;
                     else _currIndex += 1;
-                    _scrollView.current && _scrollView.current.scrollTo({
+
+                    let _scrollConfig = {
                         x:direction == 'row' ? _oneStep*2 : 0,
                         y:direction != 'row' ? _oneStep*2 : 0,
                         animated
-                    });
+                    }
+                    if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
+                    _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
                     setCurrIndex(_currIndex);
                 }else if(_offset <= _oneStep - minOffset){
                     if(_currIndex == 0) _currIndex = childrenLength-1;
                     else _currIndex -= 1;
-                    _scrollView.current && _scrollView.current.scrollTo({
+
+                    let _scrollConfig = {
                         x:0,
                         y:0,
                         animated
-                    });
+                    }
+                    if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
+                    _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
                     setCurrIndex(_currIndex);
                 }
                 // updata children
                 setTimeout(() => {
                     tmpMidIndex = _currIndex;
                     _isAndroid && setAndroidMask(true);
-                    _scrollView.current && _scrollView.current.scrollTo({
+
+                    let _scrollConfig = {
                         y:direction!='row' ?
                             _oneStep : 0,
                         x:direction=='row' ?
                             _oneStep :  0,
                         animated: false
-                    })
+                    }
+                    if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
+                    _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
+
                     setChildren(rebulidChildren(_currIndex));
                     _isAndroid && setTimeout(() => {
                         setAndroidMask(false);

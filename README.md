@@ -190,6 +190,8 @@ showPagination={false}
 |||||初始页|
 |scrollToIndex|0|/|Number|scroll to the child|
 |||||参数控制滚动至某子元素|
+|scrollToIndex|300|/|Number|(Android only)Duration (ms) on page turning|
+|||||翻页滚动持续时间|
 |direction|'row'|'row' / 'column'|String|Direction of the scrolling  |
 |||||滚动方向|
 |minOffset|10|/|Number| Threshold of scroll distance for page turning|
@@ -247,6 +249,9 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
+> - **v1.2.6**   
+>> [添加新参数] (安卓) scrollDuration: 翻页滚动持续时间
+>
 > - **v1.2.5**   
 >> [性能优化] 手动滚动时暂停自动滚动的计时器
 >
