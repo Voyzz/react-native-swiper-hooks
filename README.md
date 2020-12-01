@@ -249,6 +249,9 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
+> - **v1.2.8**   
+>> [修复] getScrollDistance纵向滚动距离修复
+>
 > - **v1.2.6**   
 >> [添加新参数] (安卓) scrollDuration: 翻页滚动持续时间
 >

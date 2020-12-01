@@ -5,8 +5,9 @@ powered by Voyz Shen
 */
 
 'use strict';
-import React, { useState, useEffect,useRef } from 'react';
-import { StyleSheet,View,Text,Image,TouchableOpacity,ScrollView,Platform,Dimensions,UIManager } from 'react-native';
+
+import { Dimensions, Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, UIManager, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
 // import { Event } from '@ctrip/crn';
 
 // ----- static variables -----
@@ -275,7 +276,7 @@ export default function Swiper(props) {
     }
 
     const _onScroll = (event)=>{
-        const scrollDistance = event.nativeEvent.contentOffset.x;
+        const scrollDistance = event.nativeEvent.contentOffset.x + event.nativeEvent.contentOffset.y;
         !!getScrollDistance && getScrollDistance(scrollDistance)
     }
 
