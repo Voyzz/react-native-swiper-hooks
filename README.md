@@ -249,6 +249,9 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
+> - **v1.2.9**   
+>> [bug修复] scrollto参数保护
+>
 > - **v1.2.8**   
 >> [修复] getScrollDistance纵向滚动距离修复
 >

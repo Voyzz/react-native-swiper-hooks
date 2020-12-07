@@ -104,7 +104,7 @@ export default function Swiper(props) {
                 animated: false
             }
             if(!!scrollDuration) _scrollConfig.duration = scrollDuration
-            _scrollView.current && _scrollView.current.scrollTo(_scrollConfig)
+            _scrollView.current && _scrollView.current.scrollTo && _scrollView.current.scrollTo(_scrollConfig)
         }, 0);
     }, []);
 
@@ -160,7 +160,7 @@ export default function Swiper(props) {
                     animated:false
                 }
                 if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
-                _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
+                _scrollView.current && _scrollView.current.scrollTo && _scrollView.current.scrollTo(_scrollConfig);
                 setTimeout(() => {
                     inScroll = false;
                     setIntervalPause(false);
@@ -216,7 +216,7 @@ export default function Swiper(props) {
                     animated
                 }
                 if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
-                _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
+                _scrollView.current && _scrollView.current.scrollTo && _scrollView.current.scrollTo(_scrollConfig);
 
                 setCurrIndex(_currIndex);
             }
@@ -232,7 +232,7 @@ export default function Swiper(props) {
                         animated
                     }
                     if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
-                    _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
+                    _scrollView.current && _scrollView.current.scrollTo && _scrollView.current.scrollTo(_scrollConfig);
                     setCurrIndex(_currIndex);
                 }else if(_offset <= _oneStep - minOffset){
                     if(_currIndex == 0) _currIndex = childrenLength-1;
@@ -244,7 +244,7 @@ export default function Swiper(props) {
                         animated
                     }
                     if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
-                    _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
+                    _scrollView.current && _scrollView.current.scrollTo && _scrollView.current.scrollTo(_scrollConfig);
                     setCurrIndex(_currIndex);
                 }
                 // updata children
@@ -260,7 +260,7 @@ export default function Swiper(props) {
                         animated: false
                     }
                     if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
-                    _scrollView.current && _scrollView.current.scrollTo(_scrollConfig);
+                    _scrollView.current && _scrollView.current.scrollTo && _scrollView.current.scrollTo(_scrollConfig);
 
                     setChildren(rebulidChildren(_currIndex));
                     _isAndroid && setTimeout(() => {
