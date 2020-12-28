@@ -99,6 +99,21 @@ npm update react-native-swiper-hooks
 
 <span id='demo'><span>
 ## Demo
+
+
+### transform-mode ↓
+![transformMode](https://i.loli.net/2020/12/28/Kv7YWEhAH3UwSjc.gif)
+```
+width={WIDTH}
+autoplay={false}
+initIndex={0}
+loop = {false}
+showPagination = {false}
+transformMode={true}
+transformModeMinSize={174}
+transformModeMaxSize={_rightViewHeight}
+```
+
 ### autoplay ↓
 ![autoplay](https://i.loli.net/2020/09/21/nMUlKg74HGNZvLA.gif)  
 ```
@@ -210,6 +225,12 @@ showPagination={false}
 |||||是否开启滚动动画|
 |bounces|true|true / false|Boolean|Enable pull flexibly when you scroll to the head and tail|
 |||||到达首尾时是否可以弹性拉动一截|
+|transformMode|false|true / false|Boolean|In this mode,size will change between `transformModeMinSize` and `transformModeMaxSize` while scrolling|
+|||||是否开启变形模式|
+|transformModeMinSize|[height of screen]|/|Number|(`transformMode = true` only) min size|
+|||||变形模式下最小尺寸|
+|transformModeMaxSize|[height of screen]|/|Number|(`transformMode = true` only) max size|
+|||||变形模式下最大尺寸|
 
 ### - Pagination -
 |Prop|Default|Options|Type|Description|
@@ -245,10 +266,15 @@ showPagination={false}
 ||||获取手动滚动距离|
 |getChildrenOnPageinationChange| / | int |get JSX Array of Children|
 ||||获取JSX数组|
+|getTransformModeCurrSize| / | int |get current size in transform-mode|
+||||变形模式下获取尺寸值|
 
 
 <span id='versions'><span>
 ## Versions
+> - **v1.3.0**   
+>> [新功能] 添加变形模式
+>
 > - **v1.2.9**   
 >> [bug修复] scrollto参数保护
 >

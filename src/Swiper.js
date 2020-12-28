@@ -51,6 +51,10 @@ export default function Swiper(props) {
         getScrollDistance,                                                                  //[回调函数]滚动距离
         getChildrenOnPageinationChange,
         // paramsControlScroll=false,
+        transformMode=false,                                                                //[参数]尺寸变化模式
+        transformModeMinSize=HEIGHT,                                                        //[参数]变换小尺寸参数
+        transformModeMaxSize=HEIGHT,                                                        //[参数]变换大尺寸参数
+        getTransformModeCurrSize                                                            //[回调函数]获取当前尺寸
     } = props ;
     // -------------------- props ---------------------
     const childrenLength = children.length,                                                 //子元素数量
@@ -85,10 +89,15 @@ export default function Swiper(props) {
 
     // -------------------- Refs ----------------------
     const _scrollView = useRef(null);
+    const _container = useRef(null);
 
 
     // ------------------- Effects --------------------
     useEffect(() => {
+        if(transformMode){
+            _container.current.setNativeProps({height:transformModeMinSize})
+        }
+
         const _oneStep = direction == 'row' ?
             (!!childWidth ? childWidth : width)
             : (!!childHeight ? childHeight : height);
@@ -278,6 +287,15 @@ export default function Swiper(props) {
     const _onScroll = (event)=>{
         const scrollDistance = event.nativeEvent.contentOffset.x + event.nativeEvent.contentOffset.y;
         !!getScrollDistance && getScrollDistance(scrollDistance)
+        if(!!transformMode) {
+            const _currContainerSize = (scrollDistance / width) * (transformModeMaxSize - transformModeMinSize) + transformModeMinSize;
+            !!getTransformModeCurrSize && getTransformModeCurrSize(parseInt(_currContainerSize))
+            _container.current.setNativeProps({
+                style:{
+                    height:_currContainerSize
+                }
+            })
+        }
     }
 
     // on autoplay
@@ -368,9 +386,12 @@ export default function Swiper(props) {
     }
 
     return (
-        <View style={[styles.outermostContainer,{backgroundColor:boxBackgroundColor}]}>
+        <View style={[styles.outermostContainer,{backgroundColor:boxBackgroundColor}]} ref={_container}>
             {/* scroll view */}
-            <ScrollView style={{width:width,height:height}}
+            <ScrollView style={{
+                            width:width,
+                            height:transformMode ? transformModeMaxSize : height
+                        }}
                         horizontal={direction == 'row' ? true : false}
                         scrollEnabled={scrollEnabled}
                         bounces={bounces}
@@ -394,6 +415,7 @@ const createStyle = ()=>{
     return StyleSheet.create({
         outermostContainer:{
             position: 'relative',
+            overflow: 'hidden',
         },
         androidMask:{
             position: 'absolute',
