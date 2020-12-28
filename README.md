@@ -12,7 +12,7 @@
 ![](https://img.shields.io/npm/l/react-native-swiper-hooks?style=for-the-badge)
 ![](https://img.shields.io/github/languages/top/Voyzz/react-native-swiper-hooks?style=for-the-badge)
 
-# Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px"> 
+# Hello, folks! <img src="https://i.loli.net/2020/12/25/1uvAhEik2RgCPDp.gif" width="30px">
 
 
 > 🦄 **This is a powerful Swiper hooks component for React Native**    
