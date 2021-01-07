@@ -273,6 +273,9 @@ showPagination={false}
 <span id='versions'><span>
 ## Versions
 > - **v1.3.0**   
+>> [bug修复]【安卓】防止滑动停止未触发_onScrollEndDrag
+>
+> - **v1.3.0**   
 >> [新功能] 添加变形模式
 >
 > - **v1.2.9**   
