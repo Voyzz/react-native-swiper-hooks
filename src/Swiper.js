@@ -190,22 +190,21 @@ export default function Swiper(props) {
 
         // 【安卓】防止滑动停止未触发_onScrollEndDrag
         _isAndroid && setTimeout(() => {
-            if(inScroll){
-                console.log(currScrollDistance);
+            if(true){
                 inScroll = false;
                 _onScrollEndDrag(null,currScrollDistance)
             }
-        }, 3000);
+        }, 3500);
     }
 
     // on scroll end
     const _onScrollEndDrag = (event,autoplayOffset) => {
-        !!onScrollEndDrag && onScrollEndDrag(event)
+        !!onScrollEndDrag && !!event && onScrollEndDrag(event)
         if(!autoplayOffset) {
             inScroll = false;
             setIntervalPause(false);
         }
-        const _offset = !!autoplayOffset ?
+        const _offset = (!!autoplayOffset || autoplayOffset == 0)  ?
                 autoplayOffset
                 : event.nativeEvent.contentOffset[direction == 'row' ? 'x' : 'y'];
         const _oneStep = direction == 'row' ?
@@ -297,7 +296,6 @@ export default function Swiper(props) {
     const _onScroll = (event)=>{
         const scrollDistance = event.nativeEvent.contentOffset.x + event.nativeEvent.contentOffset.y;
         currScrollDistance = scrollDistance;
-        inScroll = true;
         !!getScrollDistance && getScrollDistance(scrollDistance)
         if(!!transformMode) {
             const _currContainerSize = (scrollDistance / width) * (transformModeMaxSize - transformModeMinSize) + transformModeMinSize;
