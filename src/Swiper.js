@@ -189,12 +189,12 @@ export default function Swiper(props) {
         setIntervalPause(true);
 
         // 【安卓】防止滑动停止未触发_onScrollEndDrag
-        _isAndroid && setTimeout(() => {
-            if(true){
-                inScroll = false;
-                _onScrollEndDrag(null,currScrollDistance)
-            }
-        }, 3500);
+        // _isAndroid && setTimeout(() => {
+        //     if(true){
+        //         inScroll = false;
+        //         _onScrollEndDrag(null,currScrollDistance)
+        //     }
+        // }, 3500);
     }
 
     // on scroll end
