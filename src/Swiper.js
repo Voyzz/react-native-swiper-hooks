@@ -38,6 +38,7 @@ export default function Swiper(props) {
         minOffset = 10,                                                                     //[参数]翻页最小偏移量
         initIndex=0,                                                                        //[参数]初始页
         scrollToIndex=null,                                                                 //[参数]滚动至某页
+        scrollToIndexWithAnimate=false,                                                     //[参数]参数控制滚动至某页时是否开启动画
         scrollDuration=null,                                                                //[参数]翻页滚动持续时间(Android)
         showPagination=true,                                                                //[参数]是否显示页码器
         paginationPosition='bottom',                                                        //[参数]页码器位置
@@ -167,7 +168,7 @@ export default function Swiper(props) {
                 let _scrollConfig = {
                     x:direction == 'row' ? contentOffsetList[scrollToIndex] : 0,
                     y:direction != 'row' ? contentOffsetList[scrollToIndex] : 0,
-                    animated:false
+                    animated:scrollToIndexWithAnimate
                 }
                 if(!!scrollDuration) _scrollConfig.duration = scrollDuration;
                 _scrollView.current && _scrollView.current.scrollTo && _scrollView.current.scrollTo(_scrollConfig);

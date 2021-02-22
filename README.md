@@ -205,6 +205,8 @@ showPagination={false}
 |||||初始页|
 |scrollToIndex|0|/|Number|scroll to the child|
 |||||参数控制滚动至某子元素|
+|scrollToIndexWithAnimate|false|true/false|Boolean|scroll to the child with Animtion|
+|||||参数控制滚动至某子元素时是否开启动画|
 |scrollDuration|300|/|Number|(Android only)Duration (ms) on page turning|
 |||||翻页滚动持续时间|
 |direction|'row'|'row' / 'column'|String|Direction of the scrolling  |
@@ -272,6 +274,9 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
+> - **v1.3.4**   
+>> [添加新参数] scrollToIndexWithAnimate:参数控制滚动至某子元素时是否开启动画
+>
 > - **v1.3.0**   
 >> [bug修复]【安卓】防止滑动停止未触发_onScrollEndDrag
 >
