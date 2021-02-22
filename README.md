@@ -1,16 +1,16 @@
 <div align=center><img align="center" src="https://i.loli.net/2020/09/19/LYfW67IyjgZoNKq.png" width="250px"/></div> 
 
-[![](https://img.shields.io/badge/Wechat--informational?style=social&logo=wechat)](https://i.loli.net/2020/09/19/jHmZskwtUTF9oOh.png)
+[![](https://img.shields.io/badge/我的微信--informational?style=social&logo=wechat)](https://i.loli.net/2020/09/19/jHmZskwtUTF9oOh.png)
 [![](https://img.shields.io/badge/Github--informational?style=social&logo=github)](https://github.com/Voyzz)
-[![](https://img.shields.io/badge/Gmail--informational?style=social&logo=gmail)](voyzshen@gmail.com)
-[![](https://img.shields.io/badge/Blog--informational?style=social&logo=micro.blog)](http://blog.voyz.vip/)
+[![](https://img.shields.io/badge/我的邮箱--informational?style=social&logo=gmail)](voyzshen@gmail.com)
+[![](https://img.shields.io/badge/我的博客--informational?style=social&logo=micro.blog)](http://blog.voyz.vip/)
 [![](https://img.shields.io/badge/ReactNative--informational?style=social&logo=react)](https://reactnative.cn/)
 
 ![](https://img.shields.io/npm/v/react-native-swiper-hooks?style=for-the-badge)
-![](https://img.shields.io/npm/dt/react-native-swiper-hooks?style=for-the-badge)
+![](https://img.shields.io/npm/dt/react-native-swiper-hooks?style=for-the-badge) 
 ![](https://img.shields.io/github/last-commit/Voyzz/react-native-swiper-hooks?style=for-the-badge)
 ![](https://img.shields.io/npm/l/react-native-swiper-hooks?style=for-the-badge)
-![](https://img.shields.io/github/languages/top/Voyzz/react-native-swiper-hooks?style=for-the-badge)
+![](https://img.shields.io/github/languages/top/Voyzz/react-native-swiper-hooks?style=for-the-badge) 
 
 # Hello, folks! <img src="https://i.loli.net/2020/12/25/1uvAhEik2RgCPDp.gif" width="30px">
 
