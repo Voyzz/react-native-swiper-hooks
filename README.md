@@ -201,6 +201,8 @@ showPagination={false}
 |||||子元素高度（当子元素宽度与容器高度不同时传此参数）|
 |boxBackgroundColor|/|/|Color|Background color of the Swiper container|
 |||||容器背景颜色|
+|outerContainerStyle|{}|/|Object|style of the outer container|
+|||||外层容器样式|
 |initIndex|0|/|Number|Index of the init child|
 |||||初始页|
 |scrollToIndex|0|/|Number|scroll to the child|
@@ -274,6 +276,9 @@ showPagination={false}
 
 <span id='versions'><span>
 ## Versions
+> - **v1.3.5**   
+>> [添加新参数] outerContainerStyle: 外层容器样式
+>
 > - **v1.3.4**   
 >> [添加新参数] scrollToIndexWithAnimate:参数控制滚动至某子元素时是否开启动画
 >

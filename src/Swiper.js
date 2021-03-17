@@ -25,6 +25,7 @@ export default function Swiper(props) {
         height=HEIGHT,                                                                      //[参数]容器高度
         childWidth=null,                                                                    //[参数]子元素宽度
         childHeight=null,                                                                   //[参数]子元素宽度
+        outerContainerStyle={},                                                             //[参数]容器样式
         boxBackgroundColor='#ffffff00',                                                     //[参数]容器背景色
         direction='row',                                                                    //[参数]滚动方向
         scrollEnabled=true,                                                                 //[参数]是否可以手动滚动
@@ -397,7 +398,7 @@ export default function Swiper(props) {
     }
 
     return (
-        <View style={[styles.outermostContainer,{backgroundColor:boxBackgroundColor}]} ref={_container}>
+        <View style={[styles.outermostContainer,{backgroundColor:boxBackgroundColor},outerContainerStyle]} ref={_container}>
             {/* scroll view */}
             <ScrollView style={{
                             width:width,
