@@ -1,4 +1,4 @@
-<div align=center><img align="center" src="https://i.loli.net/2020/09/19/LYfW67IyjgZoNKq.png" width="250px"/></div> 
+<div align=center><img align="center" src="https://i.loli.net/2020/09/19/LYfW67IyjgZoNKq.png" width="250px"/></div>
 
 [![](https://img.shields.io/badge/我的微信--informational?style=social&logo=wechat)](https://i.loli.net/2020/09/19/jHmZskwtUTF9oOh.png)
 [![](https://img.shields.io/badge/Github--informational?style=social&logo=github)](https://github.com/Voyzz)
@@ -7,24 +7,24 @@
 [![](https://img.shields.io/badge/ReactNative--informational?style=social&logo=react)](https://reactnative.cn/)
 
 ![](https://img.shields.io/npm/v/react-native-swiper-hooks?style=for-the-badge)
-![](https://img.shields.io/npm/dt/react-native-swiper-hooks?style=for-the-badge) 
+![](https://img.shields.io/npm/dt/react-native-swiper-hooks?style=for-the-badge)
 ![](https://img.shields.io/github/last-commit/Voyzz/react-native-swiper-hooks?style=for-the-badge)
 ![](https://img.shields.io/npm/l/react-native-swiper-hooks?style=for-the-badge)
-![](https://img.shields.io/github/languages/top/Voyzz/react-native-swiper-hooks?style=for-the-badge) 
+![](https://img.shields.io/github/languages/top/Voyzz/react-native-swiper-hooks?style=for-the-badge)
 
 # Hello, folks! <img src="https://i.loli.net/2020/12/25/1uvAhEik2RgCPDp.gif" width="30px">
 
-
-> 🦄 **This is a powerful Swiper hooks component for React Native**    
->> ✨ 为React Native开发的Swiper Hooks组件     
->    
-> 📚 **Welcomes to provide your valuable comments or suggestions by 'Issues' or my contact information**    
->> ✨ 欢迎通过”issues“或我的联系方式，为我提供宝贵意见   
->  
-> 👨🏻‍💻 **Powered by Voyz Shen**    
-> ✨ Shanghai Jiao Tong University, Ctrip   
+> 🦄 **This is a powerful Swiper hooks component for React Native**
+>> ✨ 为React Native开发的Swiper Hooks组件
+>
+> 📚 **Welcomes to provide your valuable comments or suggestions by 'Issues' or my contact information**
+>> ✨ 欢迎通过”issues“或我的联系方式，为我提供宝贵意见
+>
+> 👨🏻‍💻 **Powered by Voyz Shen**
+> ✨ Shanghai Jiao Tong University, Ctrip
 
 ## Catalog
+>
 > - [How to use](#howtouse)
 > - [Demo](#demo)
 > - [Properties](#properties)
@@ -34,21 +34,24 @@
 ---
 
 <span id='howtouse'><span>
+
 ## How to use
 
-- installation   
-```
+- installation
+
+```Shell
 npm i react-native-swiper-hooks --save
 ```
 
 - import  
-```
+
+```Shell
 import Swiper from 'react-native-swiper-hooks'
 ```
 
 - use it
 
-```
+```JavaScript
 ...
 const _renderList = ()=>{
   let listData = [
@@ -89,21 +92,23 @@ const _renderList = ()=>{
 ...
 ```
 
-- update   
-```
+- update
+
+```Shell
 npm update react-native-swiper-hooks
-```   
+```
 
 ---
 
-
 <span id='demo'><span>
+
 ## Demo
 
-
 ### transform-mode ↓
+
 ![transformMode](https://i.loli.net/2020/12/28/Kv7YWEhAH3UwSjc.gif)
-```
+
+```JavaScript
 width={WIDTH}
 autoplay={false}
 initIndex={0}
@@ -115,8 +120,10 @@ transformModeMaxSize={_rightViewHeight}
 ```
 
 ### autoplay ↓
+
 ![autoplay](https://i.loli.net/2020/09/21/nMUlKg74HGNZvLA.gif)  
-```
+
+```JavaScript
 height={300}
 paginationSelectedColor={'#CCFF66'}
 autoplay={true}
@@ -126,8 +133,10 @@ direction={'row'}
 ```
   
 ### non-autoplay ↓
+
 ![non_autoplay.gif](https://i.loli.net/2020/09/21/4TLBZhYnAXatsbI.gif)  
-```
+
+```JavaScript
 height={300}
 paginationSelectedColor={'#CCFF66'}
 autoplay={false}
@@ -137,8 +146,10 @@ direction={'row'}
 ```
   
 ### non-loop ↓
+
 ![non_loop.gif](https://i.loli.net/2020/09/21/YuJKb8o2HpFkaqv.gif)  
-```
+
+```JavaScript
 height={300}
 paginationSelectedColor={'#CCFF66'}
 autoplay={false}
@@ -148,8 +159,10 @@ direction={'row'}
 ```
   
 ### vertical scrolling ↓
+
 ![vertical_scrolling.gif](https://i.loli.net/2020/09/21/jT5hrXuE84Nlzc3.gif)  
-```
+
+```JavaScript
 height={300}
 paginationPosition={'left'}
 paginationSelectedColor={'#CCFF66'}
@@ -158,10 +171,12 @@ loop={true}
 showPagination={true}
 direction={'column'}
 ```
- 
+
 ### diff Size ↓
+
 ![swiper5.gif](https://i.loli.net/2020/09/21/65pIUGaq8xOJD2C.gif)
-```
+
+```JavaScript
 height={300}
 childWidth={WIDTH-100}
 paginationSelectedColor={'#CCFF66'}
@@ -174,21 +189,25 @@ direction={'row'}
 ```  
 
 ### init Index ↓
+
 ![swipe6.gif](https://i.loli.net/2020/09/21/cvTPy31z6YgLXmE.gif)  
 
-```
+```JavaScript
 height={300}
 initIndex={1}
 showPagination={false}
 ```
+
 ---
 
 <span id='properties'><span>
+
 ## Properties
+
 ![pagination-shower.jpg](https://i.loli.net/2020/09/17/uMnIVfo1KgrslcB.jpg)
 
-
 ### - Basic -
+
 |Prop|Default|Options|Type|Description|
 |:---|:--:|:--:|:--:|:---|
 |width|[width of screen]|/|Number|Width of the Swiper container|
@@ -237,6 +256,7 @@ showPagination={false}
 |||||变形模式下最大尺寸|
 
 ### - Pagination -
+
 |Prop|Default|Options|Type|Description|
 |:---|:--:|:--:|:--:|:---|
 |showPagination|true|true / false|Boolean|Enable pagination shower |
@@ -254,10 +274,12 @@ showPagination={false}
 |paginationSelectedSize|'#000000'|/|Color|Color of the point (current)|
 |||||提示点颜色（当前页）|
 
-
 ## Functions
+
 <span id='functions'><span>
+
 ### - callback -
+
 |Func|Params|Type| Description |
 |:---|:--:|:--:|:---|
 |onPaginationChange|index|Number|Retrun the index of current page when it changes|
@@ -273,58 +295,76 @@ showPagination={false}
 |getTransformModeCurrSize| / | int |get current size in transform-mode|
 ||||变形模式下获取尺寸值|
 
-
 <span id='versions'><span>
+
 ## Versions
-> - **v1.3.5**   
+>
+> - **v1.3.5**
+>
 >> [添加新参数] outerContainerStyle: 外层容器样式
 >
-> - **v1.3.4**   
+> - **v1.3.4**
+>
 >> [添加新参数] scrollToIndexWithAnimate:参数控制滚动至某子元素时是否开启动画
 >
-> - **v1.3.0**   
+> - **v1.3.0**
+>
 >> [bug修复]【安卓】防止滑动停止未触发_onScrollEndDrag
 >
-> - **v1.3.0**   
+> - **v1.3.0**
+>
 >> [新功能] 添加变形模式
 >
-> - **v1.2.9**   
+> - **v1.2.9**
+>
 >> [bug修复] scrollto参数保护
 >
-> - **v1.2.8**   
+> - **v1.2.8**
+>
 >> [修复] getScrollDistance纵向滚动距离修复
 >
-> - **v1.2.6**   
+> - **v1.2.6**
+>
 >> [添加新参数] (安卓) scrollDuration: 翻页滚动持续时间
 >
-> - **v1.2.5**   
+> - **v1.2.5**
+>
 >> [性能优化] 手动滚动时暂停自动滚动的计时器
 >
-> - **v1.2.4**   
+> - **v1.2.4**
+>
 >> [性能优化] 避免scrollToIndex与自动播放的冲突
 >
-> - **v1.2.3**   
->> [添加新方法] getChildrenOnPageinationChange获取JSX数组    
+> - **v1.2.3**
 >
-> - **v1.2.2**   
->> [添加新参数] scrollToIndex参数控制滚动至某子元素    
+>> [添加新方法] getChildrenOnPageinationChange获取JSX数组
 >
-> - **v1.2.1**   
->> [添加新方法] 获取手动滚动距离   
->> [性能优化] 优化手动滚动时与自动滚动的冲突   
+> - **v1.2.2**
 >
-> - **v1.2.0**   
->> [添加新功能] 允许swiper内子元素尺寸与容器尺寸不同   
+>> [添加新参数] scrollToIndex参数控制滚动至某子元素
 >
-> - v1.1.3   
+> - **v1.2.1**
+>
+>> [添加新方法] 获取手动滚动距离
+>> [性能优化] 优化手动滚动时与自动滚动的冲突
+>
+> - **v1.2.0**
+>
+>> [添加新功能] 允许swiper内子元素尺寸与容器尺寸不同
+>
+> - v1.1.3
+>
 >> [性能优化] 修复页码器更新延迟  
->> [bug修复] 修复循环模式下翻页至页尾时的bug 
+>> [bug修复] 修复循环模式下翻页至页尾时的bug
 >
-> - v1.1.2 
+> - v1.1.2
+>
 >> 更新文档  
->   
-> - v1.1.1 
+>
+> - v1.1.1
+>
 >> [bug修复] 修复安卓循环模式下翻页闪屏问题  
->   
-> - **v1.1.0** 
+>
+> - **v1.1.0**
+>
 >> 组件项目迁移
