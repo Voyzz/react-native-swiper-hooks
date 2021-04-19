@@ -17,6 +17,7 @@ const _isAndroid = Platform.OS == 'android';
 let tmpMidIndex = 0;                                                                        //存储当前页码
 let inScroll = false;                                                                       //手动滚动中
 let currScrollDistance = 0;                                                                 //当前滚动位置
+let timer;                                                                                  //定时器
 
 export default function Swiper(props) {
     // ----------------- input props -----------------
@@ -189,14 +190,6 @@ export default function Swiper(props) {
         !!onScrollBeginDrag && onScrollBeginDrag(event);
         inScroll = true;
         setIntervalPause(true);
-
-        // 【安卓】防止滑动停止未触发_onScrollEndDrag
-        // _isAndroid && setTimeout(() => {
-        //     if(true){
-        //         inScroll = false;
-        //         _onScrollEndDrag(null,currScrollDistance)
-        //     }
-        // }, 3500);
     }
 
     // on scroll end
@@ -297,6 +290,15 @@ export default function Swiper(props) {
 
     const _onScroll = (event)=>{
         const scrollDistance = event.nativeEvent.contentOffset.x + event.nativeEvent.contentOffset.y;
+
+        // 【android】situation without "onScrollEndDrag"
+        if(_isAndroid){
+            if(!!timer) clearTimeout(timer);
+            timer = setTimeout(() => {
+                _onScrollEndDrag(null,scrollDistance)
+            }, 1000);
+        }
+
         currScrollDistance = scrollDistance;
         !!getScrollDistance && getScrollDistance(scrollDistance)
         if(!!transformMode) {
@@ -409,7 +411,6 @@ export default function Swiper(props) {
                         bounces={bounces}
                         onScrollBeginDrag={_onScrollBeginDrag}
                         onScrollEndDrag={_onScrollEndDrag}
-                        // onMomentumScrollEnd={_onScrollEndDrag}
                         onScroll={_onScroll}
                         ref = {_scrollView}
                         scrollEventThrottle = {1}

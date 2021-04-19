@@ -299,6 +299,10 @@ showPagination={false}
 
 ## Versions
 >
+> - **v1.3.6**
+>
+>> [优化] 安卓不触发onScrollEndDrag时增加防抖逻辑
+>
 > - **v1.3.5**
 >
 >> [添加新参数] outerContainerStyle: 外层容器样式
