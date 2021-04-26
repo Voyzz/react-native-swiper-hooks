@@ -299,7 +299,7 @@ showPagination={false}
 
 ## Versions
 >
-> - **v1.3.6**
+> - **v1.3.8**
 >
 >> [优化] 安卓不触发onScrollEndDrag时增加防抖逻辑
 >

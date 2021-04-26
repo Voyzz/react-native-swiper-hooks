@@ -193,7 +193,7 @@ export default function Swiper(props) {
     }
 
     // on scroll end
-    const _onScrollEndDrag = (event,autoplayOffset) => {
+    const _onScrollEndDrag = (event,autoplayOffset,mustScroll) => {
         !!onScrollEndDrag && !!event && onScrollEndDrag(event)
         if(!autoplayOffset) {
             inScroll = false;
@@ -207,7 +207,7 @@ export default function Swiper(props) {
                 : (!!childHeight ? childHeight : height);
         let _currIndex = currIndex;
 
-        if(!inScroll){
+        if(!inScroll || !!mustScroll){
             // without loop
             if(!loop){
                 const _diffVal = direction == 'row' ?
@@ -295,8 +295,8 @@ export default function Swiper(props) {
         if(_isAndroid){
             if(!!timer) clearTimeout(timer);
             timer = setTimeout(() => {
-                _onScrollEndDrag(null,scrollDistance)
-            }, 1000);
+                _onScrollEndDrag(null,scrollDistance,true)
+            }, 600);
         }
 
         currScrollDistance = scrollDistance;
